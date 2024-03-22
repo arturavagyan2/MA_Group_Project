@@ -2,11 +2,11 @@
 
 ## Problem Definition
 
-Subscription-based streaming companies like Disney+ and Hulu are facing a critical challenge: a decline in customer retention. Despite offering diverse content libraries, user-friendly platforms, and enjoying global fame, these companies are struggling to maintain their subscriber bases amidst fierce competition and frequent pricing adjustments. This issue not only leads to a reduction in paid subscriptions but also represents a significant threat to the sustainability and growth of streaming platforms, impacting their ability to generate revenue and invest in content development.
+Subscription-based streaming companies like [Disney+ and Hulu are experiencing a decline](https://qz.com/disney-plus-hulu-subscriptions-down-piracy-rising-1851241355) in customer retention, leading to a reduction in paid subscriptions and, hence also loss of revenue. These companies offer diverse content libraries, they have user-friendly platforms, are very famous worldwide, however they are struggling to maintain their subscriber bases amidst increasing competition, and frequent pricing adjustments, that these companies themselves frequently do in hopes of combating the loss of revenue. The loss of subscribers poses a significant challenge to the sustainability and growth of streaming platforms, impacting their ability to generate revenue and invest in content development.
 
 ## Project Objective
 
-Our project aims to tackle the issue of declining customer retention and subscriber attrition among subscription-based streaming companies. We are developing a Python package that utilizes RFM (Recency, Frequency, Monetary) analysis to provide insights into subscriber behavior patterns, client segmentation, and their likelihood of churn. This tool will help streaming service companies optimize their retention strategies and enhance their understanding of subscriber loyalty. Our solution seeks to support the sustained growth and revenue generation of these platforms in the highly competitive streaming landscape.
+We aim, with our project, to address the issue of declining customer retention and subscriber attrition of the aforementioned subscription-based companies and others alike by developing a Python package that will make use of RFM analysis. Our package's RFM analysis will offer you insights into behavior patterns, client segmentation, and their likelihood of churn. It will assist streaming service companies optimize their retention strategies and also enhance their understanding of subscriber loyalty. By helping these companies better understand their audience, our solution aims to support sustained growth and revenue generation in the competitive streaming landscape.
 
 ## Features
 
