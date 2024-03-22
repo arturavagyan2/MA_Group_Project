@@ -2,7 +2,7 @@
 
 ## Problem Definition
 
-Subscription-based streaming companies like [Disney+ and Hulu are experiencing a decline](https://qz.com/disney-plus-hulu-subscriptions-down-piracy-rising-1851241355) in customer retention, leading to a reduction in paid subscriptions and, hence also loss of revenue. These companies offer diverse content libraries, they have user-friendly platforms, are very famous worldwide, however they are struggling to maintain their subscriber bases amidst increasing competition, and frequent pricing adjustments, that these companies themselves frequently do in hopes of combating the loss of revenue. The loss of subscribers poses a significant challenge to the sustainability and growth of streaming platforms, impacting their ability to generate revenue and invest in content development.
+Subscription-based streaming companies like [Disney+ and Hulu are experiencing a decline](https://qz.com/disney-plus-hulu-subscriptions-down-piracy-rising-1851241355) in customer retention, leading to a reduction in paid subscriptions and, hence  loss of revenue. These companies offer diverse content libraries, they have user-friendly platforms, are very famous worldwide, however they are struggling to maintain their subscriber bases amidst increasing competition, and frequent pricing adjustments, that these companies themselves frequently do in hopes of combating the loss of revenue. The loss of subscribers poses a significant challenge to the sustainability and growth of streaming platforms, impacting their ability to generate revenue and invest in content development.
 
 ## Project Objective
 
