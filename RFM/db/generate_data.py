@@ -8,11 +8,6 @@ fake = Faker()
 subscriber_ids = list(range(1, 101))
 payment_method_ids = list(range(1, 6))
 
-def random_date(start, end):
-    return start + timedelta(
-        seconds=random.randint(0, int((end - start).total_seconds())),
-    )
-
 def generate_subscribers():
     for _ in subscriber_ids:
         return {
