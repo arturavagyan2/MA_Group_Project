@@ -12,6 +12,8 @@ payment_method_ids = list(range(1, 6))
 def generate_subscribers():
     subscribers_data = []
     for _ in subscriber_ids:
+        start = fake.date_time_this_decade(before_now=True, after_now=False)
+        end = fake.date_time_this_decade(before_now=False, after_now=True)
         subscriber = {
             'subscriber_id': _,
             'name': fake.name(),
@@ -19,9 +21,9 @@ def generate_subscribers():
             'age': random.randint(18, 70),
             'gender': random.choice(['Male', 'Female', 'Other']),
             'location': fake.city(),
-            'subscription_start_date': fake.date_time_this_decade(before_now=True, after_now=False),
-            'subscription_end_date': fake.date_time_this_decade(before_now=False, after_now=True),
-            'survival_time': random.randint(1, 365),
+            'subscription_start_date': start,
+            'subscription_end_date': end,
+            'survival_time': (end - start).days,
             'event_observed': fake.boolean()
         }
         subscribers_data.append(subscriber)

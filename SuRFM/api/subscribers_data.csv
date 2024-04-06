@@ -1,0 +1,102 @@
+subscriber_id,name,email,age,gender,location,subscription_start_date,subscription_end_date,survival_time,event_observed
+1,Cheryl Morgan,kyle94@example.org,38,Male,Hallfort,2021-10-27 00:11:46.384657,2025-11-10 05:48:32.090072,1475.0,False
+2,Donna Patel,spencedaniel@example.org,68,Male,Jonesburgh,2022-07-11 10:52:01.630461,2024-11-30 07:05:00.913330,872.0,True
+3,Susan Wiley,karensmith@example.com,32,Male,Hardyport,2022-02-19 13:24:50.813076,2024-04-23 12:35:33.762271,793.0,False
+4,Crystal Smith,mwu@example.org,23,Female,South William,2020-06-01 03:07:52.533854,2025-01-14 08:35:45.747938,1688.0,True
+5,Kristen Jones,kristinahall@example.org,64,Male,Port Valerieport,2023-02-11 15:57:28.847255,2027-03-18 03:45:07.075553,1495.0,False
+6,Mrs. Beverly Costa,davidewing@example.com,61,Male,Masseyfurt,2022-04-12 01:46:46.923354,2029-09-05 03:04:36.358767,2703.0,False
+7,John Rogers,angelagarcia@example.com,33,Female,Anthonyfurt,2022-05-29 19:39:36.743410,2027-03-14 00:19:56.734632,1749.0,False
+8,Henry Weiss,reidmegan@example.org,46,Other,North Matthew,2020-06-11 02:24:18.987000,2025-08-07 17:24:44.649700,1883.0,False
+9,Wesley Holmes,melanie77@example.net,18,Male,Emilychester,2022-01-16 20:15:28.596768,2026-10-28 09:40:53.747644,1745.0,True
+10,Michael Johnson,hansonkyle@example.net,68,Female,Ramseyland,2023-05-13 13:44:17.040195,2026-05-04 16:39:26.939339,1087.0,False
+11,Lisa Mendez,wheelerjames@example.org,66,Female,Port Amymouth,2023-09-14 23:30:45.020718,2026-11-27 10:22:19.455209,1169.0,False
+12,Jennifer Erickson,john57@example.org,59,Male,Janetmouth,2020-10-06 17:49:18.401331,2027-02-28 20:09:19.773189,2336.0,False
+13,Connie Campos,danielrobertson@example.com,37,Male,Lake Gregory,2021-08-10 07:42:02.339189,2029-03-11 12:59:08.174194,2770.0,True
+14,John Porter,melissa44@example.com,41,Male,Jeffreyberg,2022-12-15 14:50:18.171570,2024-05-29 06:54:32.841730,530.0,True
+15,Michelle Lopez,james97@example.net,26,Male,South Denise,2022-07-08 04:03:49.277292,2027-12-06 07:24:52.314198,1977.0,False
+16,Joanna Smith,amberhill@example.org,62,Male,Josephstad,2021-09-18 17:23:49.523588,2025-01-06 12:17:26.092378,1205.0,True
+17,Holly Henry,tsaunders@example.com,31,Other,Fryeville,2023-09-21 08:26:36.729363,2029-09-27 00:31:29.544380,2197.0,True
+18,Cody Jennings,lisadiaz@example.org,20,Female,New Aimeemouth,2023-08-17 04:33:10.608055,2025-11-01 15:35:59.792019,807.0,True
+19,Kevin Brown,christophergeorge@example.com,60,Female,Port Joseph,2021-09-07 14:59:28.807386,2025-02-18 03:26:15.119512,1259.0,True
+20,Anthony Rhodes,ksimmons@example.com,57,Female,Kelleyshire,2021-09-17 17:53:55.936239,2029-07-16 04:35:25.588776,2858.0,True
+21,Mary Austin,lisawilliams@example.net,26,Male,South Kyliestad,2020-04-15 02:22:46.863312,2028-03-24 02:52:10.317986,2900.0,False
+22,Colton Hurley,megan26@example.net,63,Female,North Victorside,2022-02-07 10:34:37.408875,2029-07-20 19:27:18.826018,2720.0,False
+23,Donald Watts,fullerkelly@example.org,62,Female,Juliehaven,2023-06-18 07:49:54.802943,2024-09-24 12:14:42.970449,464.0,False
+24,Elizabeth Williams,imitchell@example.com,69,Other,Christophershire,2020-05-23 14:41:37.471135,2027-11-07 15:55:21.410425,2724.0,False
+25,Julie White,staylor@example.net,47,Female,South Kristin,2020-09-17 13:21:20.797384,2026-09-22 03:11:49.202035,2195.0,False
+26,James Nguyen,brandy22@example.org,45,Other,East Elizabeth,2021-05-30 02:14:09.625074,2025-09-25 03:37:21.666881,1579.0,True
+27,Tina Jones,kevin62@example.com,47,Male,Debraland,2020-11-13 05:49:35.842392,2028-02-19 22:11:33.987005,2654.0,True
+28,Michael Cameron,kstephens@example.net,55,Other,Dominiqueland,2021-09-20 02:19:45.450615,2025-04-06 18:02:07.365320,1294.0,True
+29,Jeffrey Thompson,russellcindy@example.org,69,Male,Port Juliaside,2023-02-03 05:44:52.074875,2026-08-04 10:51:59.432562,1278.0,True
+30,Sabrina Sanchez,qmoore@example.com,21,Male,Maryhaven,2021-01-30 04:16:46.457427,2024-07-01 21:45:27.895670,1248.0,False
+31,Christopher Gonzalez,cunninghamanthony@example.net,55,Other,New Paulport,2024-03-30 19:06:59.705626,2025-10-01 18:45:19.113889,549.0,False
+32,Jennifer Shepard,smithbenjamin@example.com,68,Other,Port Joshua,2022-10-04 22:55:10.147568,2029-05-12 00:04:33.197137,2411.0,True
+33,Jamie Watkins,robertspatrick@example.net,47,Female,Murillofort,2023-12-14 18:23:18.122189,2025-08-09 05:14:53.738473,603.0,True
+34,Jillian Ford,tparks@example.com,63,Female,Blairstad,2021-09-27 16:19:21.825331,2025-06-02 07:21:59.940067,1343.0,False
+35,David Garcia,mollysanchez@example.com,45,Female,Jonathanmouth,2020-06-02 13:59:38.943198,2027-01-24 09:54:30.814672,2426.0,True
+36,Robert Rodriguez,zthomas@example.com,22,Female,Greenshire,2022-12-24 17:19:54.581602,2026-03-03 21:36:34.247637,1165.0,True
+37,Katherine Garcia,brownaustin@example.net,61,Male,Lorimouth,2023-08-04 03:40:58.659001,2028-08-28 09:52:18.970177,1851.0,False
+38,Melinda Leonard PhD,katelyn11@example.org,52,Male,East Kristinton,2023-10-15 09:47:02.754017,2028-09-23 00:56:42.741318,1804.0,False
+39,Stacy Walker,ftaylor@example.net,27,Other,Larsonfort,2020-02-16 07:52:01.300938,2028-09-05 17:50:01.229887,3124.0,False
+40,Tamara Savage,cabreradanielle@example.com,32,Female,North Melissa,2021-12-05 02:39:00.705364,2029-02-28 15:27:08.335388,2642.0,False
+41,Alexa Franklin,courtney42@example.org,33,Male,Christineton,2020-08-13 11:09:31.533860,2027-08-04 21:09:57.016046,2547.0,False
+42,Hannah Mitchell,brian27@example.net,39,Other,West Derrick,2023-08-15 17:02:21.306317,2028-07-30 01:05:11.809621,1810.0,True
+43,Elizabeth Mclaughlin,sdonaldson@example.net,23,Other,Lake Coreystad,2021-07-03 11:23:54.273251,2027-06-13 23:08:31.521874,2171.0,True
+44,Heidi Thompson,hendersontammy@example.net,43,Male,Hopkinsberg,2020-04-15 03:29:42.696968,2029-11-05 19:04:34.397932,3491.0,False
+45,Megan Daniel,crystalswanson@example.net,39,Other,Yolandamouth,2020-07-31 01:56:57.553845,2029-09-12 07:28:33.124593,3330.0,False
+46,Rebecca Collins,angela77@example.com,42,Other,Jaredfurt,2021-04-18 18:27:54.070840,2028-05-28 13:00:27.795696,2596.0,True
+47,Madison Keller,thomaspowell@example.net,68,Female,Eileenhaven,2023-04-21 20:43:09.557577,2025-02-07 06:36:57.257123,657.0,False
+48,Samuel Lewis,teresa03@example.org,68,Other,North Amandamouth,2021-09-30 09:18:16.243839,2028-11-22 16:34:09.878090,2610.0,False
+49,Melissa Larson,johnnytodd@example.net,70,Other,East Sarahhaven,2021-03-03 16:22:42.550865,2026-05-09 20:12:57.960046,1893.0,False
+50,Casey Ramirez,laurenjohnson@example.org,21,Other,Tonihaven,2020-11-25 07:55:30.310516,2028-06-12 08:01:21.032332,2756.0,True
+51,Andrew Shields,brucehill@example.org,19,Female,Sharonville,2020-09-27 10:03:23.741865,2024-07-25 08:16:07.509546,1396.0,False
+52,Jared Alvarez DDS,davidcollins@example.com,68,Male,Adamsmouth,2023-01-31 17:01:02.170870,2029-11-17 06:41:59.826059,2481.0,False
+53,Zachary Owens,pamelamiddleton@example.com,35,Female,Angelabury,2022-07-26 20:09:16.519887,2024-10-25 20:50:03.768741,822.0,True
+54,Pam Kemp MD,ljacobs@example.com,28,Female,Lake Josephmouth,2021-09-28 16:50:33.954255,2024-05-20 21:07:56.447079,965.0,False
+55,Jeremy Weber,elee@example.net,27,Male,Lake Hannahstad,2020-06-05 20:58:59.718051,2028-09-18 17:00:35.795018,3026.0,True
+56,Jonathan Diaz,fisherpatrick@example.org,21,Female,Lake Sallyhaven,2020-08-13 14:49:33.178083,2026-12-13 22:32:12.324598,2313.0,True
+57,Francisco Weaver,krocha@example.org,57,Male,South Sara,2021-10-26 11:19:16.738144,2027-03-08 04:59:55.231282,1958.0,False
+58,Michelle Silva,hendersonjoshua@example.com,50,Male,Carlfurt,2021-02-07 20:05:08.075447,2025-05-28 06:57:20.637704,1570.0,False
+59,Amy Chen,ashley01@example.net,41,Other,New Christopherview,2023-07-10 21:58:57.131881,2028-07-01 17:26:32.777278,1817.0,True
+60,Kathleen Wilson,eileenjones@example.org,61,Male,Tiffanymouth,2021-12-01 07:51:23.437561,2025-04-26 16:25:18.412757,1242.0,False
+61,Garrett Ballard,gardnermichael@example.org,51,Other,Yvonneborough,2022-10-15 21:20:44.457349,2029-12-27 05:40:45.787483,2629.0,True
+62,Wanda Gardner,rojasjose@example.org,55,Male,Kellerchester,2023-10-23 20:42:44.042001,2029-01-29 23:53:34.617310,1925.0,False
+63,Brian Ballard,scantu@example.org,38,Male,Jenniferland,2023-11-01 07:26:16.238472,2024-09-30 09:21:27.322215,334.0,False
+64,Monica Long,devin33@example.com,60,Female,North Michael,2023-08-03 00:58:35.096732,2026-07-12 03:32:44.341782,1074.0,False
+65,Valerie Brewer,padams@example.net,36,Other,New Jessica,2022-09-01 12:07:08.931636,2026-08-07 19:05:29.495487,1436.0,False
+66,Mary Vazquez,nelsonmark@example.net,26,Female,South Ronald,2021-08-03 06:43:01.558487,2028-05-29 12:26:14.594281,2491.0,False
+67,James Anderson,tara52@example.com,29,Other,Loganbury,2022-06-13 08:24:18.756755,2025-12-18 16:09:51.075770,1284.0,False
+68,Helen Simmons,kyleweber@example.com,68,Female,Robertland,2022-01-28 17:50:29.414132,2025-01-06 08:52:23.051960,1073.0,True
+69,Andrew Lopez,qjones@example.com,20,Male,Beverlyshire,2022-11-02 14:31:32.170180,2028-10-28 10:00:06.345176,2186.0,True
+70,Christopher Gibson,jennifer78@example.com,23,Other,Aprilborough,2020-05-21 16:05:01.601402,2029-06-02 11:37:28.566929,3298.0,False
+71,Tracy Wright,kimberlyjoseph@example.org,52,Female,Rodriguezview,2023-04-03 03:07:16.058545,2028-06-30 02:43:20.780541,1914.0,True
+72,Douglas Torres,walkerdaniel@example.net,42,Male,Jasonmouth,2023-09-21 10:22:32.505507,2029-07-31 14:19:42.535079,2140.0,False
+73,Mrs. Jill Cohen MD,kingwilliam@example.net,25,Female,Lake Kelly,2020-07-12 05:38:51.192772,2024-08-04 01:38:26.298894,1483.0,True
+74,Scott Morgan,christine60@example.com,65,Male,Gwendolynport,2022-05-25 02:10:25.149453,2029-07-01 15:41:23.678248,2594.0,True
+75,David Walker,antonio67@example.org,65,Male,Brookeburgh,2021-02-04 08:29:42.456554,2028-04-15 01:54:47.627028,2626.0,False
+76,Christopher Elliott,hoffmanchristopher@example.com,51,Other,New Alanborough,2021-03-10 00:57:56.201179,2026-09-06 01:58:28.137656,2006.0,False
+77,Patricia Wilson,george10@example.net,27,Other,North Jacqueline,2022-08-19 08:35:05.210248,2026-12-25 19:04:07.286234,1589.0,True
+78,Linda Martinez,simmonsrebecca@example.org,32,Female,Stephaniefurt,2021-10-07 19:52:22.790224,2025-11-27 01:26:55.196433,1511.0,True
+79,Brian Moreno,michaelsilva@example.com,66,Male,East Jacob,2020-10-05 23:27:04.574770,2024-08-11 09:42:25.509686,1405.0,True
+80,Kelly Daniels,watsoncynthia@example.org,26,Other,Port Robertmouth,2021-05-04 15:08:56.282006,2029-02-17 01:50:20.512618,2845.0,True
+81,Lindsay Mills,paul39@example.com,24,Other,Matastad,2021-10-31 09:14:39.549928,2024-08-05 23:32:57.375175,1009.0,True
+82,Elizabeth Mcguire,powellchloe@example.net,60,Other,Jasonmouth,2024-02-29 12:37:57.473307,2026-11-18 09:46:14.702510,992.0,True
+83,Carla Gibson,woodsshawn@example.net,20,Other,Claireville,2023-03-09 11:59:27.005048,2026-07-15 06:18:53.591068,1223.0,False
+84,Donald Johnson,mejiamichelle@example.org,46,Male,Thomasview,2022-01-15 14:45:56.965868,2026-03-17 16:01:57.018061,1522.0,False
+85,Abigail Welch,eharris@example.net,52,Male,New Williehaven,2024-02-16 06:53:00.594194,2024-12-01 22:27:47.268665,289.0,True
+86,Amanda Murphy,richard64@example.net,61,Female,Port Cory,2022-12-01 00:15:22.519963,2026-08-23 05:20:44.824200,1361.0,False
+87,Erica Adams,robert63@example.org,46,Male,West Kathleen,2022-12-08 08:59:34.420007,2026-07-21 02:25:08.708480,1320.0,False
+88,Harold Freeman,josephkhan@example.net,31,Other,South Kylehaven,2022-04-28 07:19:34.855816,2027-04-10 08:41:48.426733,1808.0,False
+89,Jerry Powell,zachary92@example.net,49,Male,Lake Jamesborough,2021-04-18 22:06:17.982813,2027-11-02 03:37:18.740140,2388.0,False
+90,David Riley,twall@example.org,46,Female,East Jessicachester,2022-04-05 05:57:53.616904,2026-07-04 10:04:12.037493,1551.0,False
+91,Stephen Evans,arnoldlaura@example.net,38,Other,South Kimberly,2021-11-06 10:11:03.095402,2028-09-24 04:22:41.585788,2513.0,True
+92,Kristin Mathis,kelly20@example.org,25,Male,Lake Nathaniel,2021-01-16 09:49:22.694580,2027-01-25 23:41:53.846283,2200.0,False
+93,James Mcpherson,ymosley@example.net,58,Female,East Benjaminland,2023-09-16 17:39:21.356346,2025-08-24 17:59:39.933704,708.0,False
+94,Tina Carter,heidigriffin@example.net,66,Other,West Danielhaven,2020-10-04 15:30:54.943637,2024-10-30 17:42:34.583176,1487.0,True
+95,Kaitlyn Logan,kingbilly@example.com,20,Female,Justinmouth,2020-07-11 11:10:17.670910,2027-08-26 17:18:15.022597,2602.0,False
+96,Tracey Choi,slopez@example.org,24,Female,Lake Patrickchester,2021-04-17 23:05:09.626426,2024-08-05 10:26:07.859792,1205.0,True
+97,Katrina Sharp,rodriguezbrittney@example.com,32,Other,Watsonland,2021-02-13 12:21:30.686112,2029-08-16 00:09:14.372223,3105.0,True
+98,Madison Rubio,ygutierrez@example.com,24,Male,New Tracyhaven,2020-09-29 15:07:07.378849,2028-09-02 22:59:06.556167,2895.0,False
+99,Jessica Wilson,amy45@example.net,61,Other,Amandaborough,2023-03-18 04:41:50.393139,2027-08-19 21:10:55.922969,1615.0,True
+100,Betty Thompson,murraypaul@example.com,37,Female,Faulknerhaven,2022-12-05 13:05:43.731002,2024-08-26 10:04:09.526210,629.0,False
+101,Hrag,hrag@gmail.com,20,Male,Armenia,2024-04-06 22:32:50.928799,2024-04-06 22:32:51.952557,0.0,True
