@@ -45,6 +45,7 @@ class SqlHandler:
         # logger.info(f'BEFORE the column intersection: {columns}')
         sql_column_names = [i.lower() for i in self.get_table_columns()]
         columns = list(set(columns) & set(sql_column_names))
+    
         # logger.info(f'AFTER the column intersection: {columns}')
         ncolumns = list(len(columns) * '?')
         data_to_insert = df.loc[:, columns]

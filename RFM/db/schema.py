@@ -32,7 +32,7 @@ class Activity(Base):
     subscriber = relationship('Subscriber', back_populates='activities')
 
 class Transaction(Base):
-    __tablename__ = 'transaction'
+    __tablename__ = 'transactions'
 
     transaction_id = Column(Integer, primary_key=True)
     subscriber_id = Column(Integer, ForeignKey('subscriber.subscriber_id'))
@@ -84,5 +84,5 @@ class CLV(Base):
     subscriber = relationship('Subscriber', back_populates='clv')
 
 if __name__ == '__main__':
-    engine = create_engine('sqlite:///database.db')  
+    engine = create_engine('sqlite:///subscription_database.db')  
     Base.metadata.create_all(engine)
