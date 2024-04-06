@@ -13,12 +13,12 @@ Our project aims to address the issue of declining customer retention and subscr
 
 # Step 1: Generate the data and fill the DB
 
-## 1. How to generate the data
+### 1. How to generate the data
 Inside RFM there is a db folder. Inside we have 4 files. First of all generate the data and run **save_to_csv.py** file to keep the generated files in csv format.
 
-## 2. Construct the database
+### 2. Construct the database
 Run also the **schema.py** to activate the database. The empty tables will be available now in the subscription_database.db
 
 
-## 3. Fill in the data
+### 3. Fill in the data
 To move the generated data from the csv into the db just run the **basic_rfm.py** script.
