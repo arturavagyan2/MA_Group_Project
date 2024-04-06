@@ -11,7 +11,8 @@ Our project aims to address the issue of declining customer retention and subscr
 2. **Analysis**: The RFM model segments subscribers based on their recency, frequency, and monetary value contributions to the service.
 3. **Insights and Actions**: Based on the analysis, the package provides actionable insights for improving customer retention strategies.
 
-# Step 1: Generate Data and Populate the Database
+
+## Step 1: Generate Data and Populate the Database
 
 ### 1. Data Generation Process
 Navigate to the db folder within RFM. You'll find four files in there. Begin by generating the data using the provided tools. Run the save_to_csv.py script to store the generated data in CSV format.
@@ -22,7 +23,8 @@ Execute the schema.py script to initialize the database. This action creates emp
 ### 3. Data Population
 To transfer the generated data from CSV files into the database, run the basic_rfm.py script. This step fills the tables in the database with the relevant information.
 
-Additional Notes:
+
+### Additional Notes:
 * Make sure to have Python installed on your system.
 * Ensure all dependencies are met before executing the scripts.
 * For any issues or inquiries, feel free to reach out to the repository maintainers.
