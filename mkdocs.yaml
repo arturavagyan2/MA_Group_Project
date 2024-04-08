@@ -1,0 +1,5 @@
+site_name: My Documentation
+docs_dir: documents
+theme:
+  name: material
+
