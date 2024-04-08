@@ -101,3 +101,4 @@ subscriber_id,name,email,age,gender,location,subscription_start_date,subscriptio
 100,Betty Thompson,murraypaul@example.com,37,Female,Faulknerhaven,2022-12-05 13:05:43.731002,2024-08-26 10:04:09.526210,629.0,False
 101,Hrag,hrag@gmail.com,20,Male,Armenia,2024-04-06 22:32:50.928799,2024-04-06 22:32:51.952557,0.0,True
 102,Ina,ina123@gmail.com,20,Other,Armenia,2024-04-08 12:39:09.024040,2024-04-08 12:40:13.061360,0.0,False
+103,test,testsss@gmail.com,30,Female,ahre sdfji ewfv,2024-04-08 14:00:57.638827,,,False

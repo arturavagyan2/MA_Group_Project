@@ -1,80 +1,93 @@
-from fastapi import FastAPI, Query, HTTPException
-import pandas as pd
+from fastapi import FastAPI, Query, HTTPException, Depends
 from datetime import datetime
-import csv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.exc import SQLAlchemyError
+from ..db.schema import Base, Subscriber
+from ..db.sql_handler import SqlHandler
+
+SQLALCHEMY_DATABASE_URL = "sqlite:///subscription_database.db"
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 app = FastAPI()
-subscribers_path = 'subscribers_data.csv'
 
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/")
+async def show_message():
+    return {'message': 'head to http://127.0.0.1:8000/docs/ to test the APIs'}
 
 @app.get("/subscriber")
-async def get_subscriber_info(id: int):
-    data = pd.read_csv(subscribers_path)
-    subscriber = data[data.subscriber_id == id].to_dict('records')
-    if not subscriber:
-        raise HTTPException(status_code=404, detail=f"Subscriber not found with ID: {id}")
-    return subscriber
+async def get_subscriber_info(id: int, db: Session = Depends(get_db)):
+    try:
+        subscriber = db.query(Subscriber).filter(Subscriber.subscriber_id == id).first()
+        if not subscriber:
+            raise HTTPException(status_code=404, detail=f"Subscriber not found with ID: {id}")
+        return subscriber
+    except SQLAlchemyError as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 
 @app.post("/new_subscriber")
-async def add_subscriber(name: str, email: str, age: int, location: str, gender: str = Query(enum=["Male", "Female", "Other"])):
-    data = pd.read_csv(subscribers_path)
-    subscriber_id = len(data) + 1
-    subscription_start_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
-    if subscriber_id in data['subscriber_id'].values:
-        raise HTTPException(status_code=400, detail="Subscriber ID already exists")
-
-    new_subscriber = {
-        'subscriber_id': subscriber_id,
-        'name': name,
-        'email': email,
-        'age': age,
-        'gender': gender,
-        'location': location,
-        'subscription_start_date': subscription_start_date,
-        'subscription_end_date': None,
-        'survival_time': None,
-        'event_observed': False
-    }
-
+async def add_subscriber(name: str, email: str, age: int, location: str, gender: str = Query(enum=["Male", "Female", "Other"]), db: Session = Depends(get_db)):
     try:
-        with open(subscribers_path, mode='a', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=new_subscriber.keys())
-            writer.writerow(new_subscriber)
+        subscription_start_date = datetime.now()
+        new_subscriber = Subscriber(name=name, email=email, age=age, location=location, gender=gender, subscription_start_date=subscription_start_date, event_observed=False)
+        db.add(new_subscriber)
+        db.commit()
+        db.refresh(new_subscriber)
+        return {"message": f"Subscriber added successfully with ID: {new_subscriber.subscriber_id}"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to add subscriber: {str(e)}")
-
-    return {"message": f"Subscriber added successfully with ID: {subscriber_id}"}
+        raise HTTPException(status_code=500, detail=f"Error adding subscriber: {str(e)}")
     
 
 
 @app.put("/update_subscriber")
-async def update_subscriber(Subscriber_ID: int, Name: str = Query(None), Email: str = Query(None), Age: int = Query(None), Location: str = Query(None), Gender: str = Query(None, enum=["Male", "Female", "Other"]), Subscribtion_Ended: bool = Query(None, enum=[True]), Event_Observed: bool = Query(False)):
-    data = pd.read_csv(subscribers_path)
-    subscriber_index = data[data['subscriber_id'] == Subscriber_ID].index
-    if len(subscriber_index) == 0:
-        raise HTTPException(status_code=404, detail=f"Subscriber not found with ID: {Subscriber_ID}")
-    subscription_start_date = pd.to_datetime(data.at[subscriber_index[0], 'subscription_start_date'])
+async def update_subscriber(Subscriber_ID: int, Name: str = Query(None), Email: str = Query(None), Age: int = Query(None), Location: str = Query(None), Gender: str = Query(None, enum=["Male", "Female", "Other"]), Subscribtion_Ended: bool = Query(None, enum=[True]), Event_Observed: bool = Query(False), db: Session = Depends(get_db)):
+    try:
+        subscriber = db.query(Subscriber).filter(Subscriber.subscriber_id == Subscriber_ID).first()
+        if not subscriber:
+            raise HTTPException(status_code=404, detail=f"Subscriber not found with ID: {Subscriber_ID}")
 
-    if Name is not None:
-        data.at[subscriber_index[0], 'name'] = Name
-    if Email is not None:
-        data.at[subscriber_index[0], 'email'] = Email
-    if Age is not None:
-        data.at[subscriber_index[0], 'age'] = Age
-    if Location is not None:
-        data.at[subscriber_index[0], 'location'] = Location
-    if Gender is not None:
-        data.at[subscriber_index[0], 'gender'] = Gender
-    if Subscribtion_Ended is True:
-        current_time = pd.to_datetime(datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"))
-        data.at[subscriber_index[0], 'subscription_end_date'] = current_time
-        duration = current_time - subscription_start_date
-        data.at[subscriber_index[0], 'survival_time'] = duration.days
-    if Event_Observed is not None:
-        data.at[subscriber_index[0], 'event_observed'] = Event_Observed
-    
-    data.to_csv(subscribers_path, index=False)
+        if Name is not None:
+            subscriber.name = Name
+        if Email is not None:
+            subscriber.email = Email
+        if Age is not None:
+            subscriber.age = Age
+        if Location is not None:
+            subscriber.location = Location
+        if Gender is not None:
+            subscriber.gender = Gender
+        if Subscribtion_Ended is True:
+            current_time = datetime.now()
+            subscriber.subscription_end_date = current_time
+            duration = current_time - subscriber.subscription_start_date
+            subscriber.survival_time = duration.days
+        if Event_Observed is not None:
+            subscriber.event_observed = Event_Observed
 
-    return {"message": "Subscriber data updated successfully"}
+        db.commit()
+        return {"message": "Subscriber data updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error updating subscriber: {str(e)}")
     
+
+@app.delete("/delete_subscriber")
+async def delete_subscriber(subscriber_id: int, db: Session = Depends(get_db)):
+    try:
+        subscriber = db.query(Subscriber).filter(Subscriber.subscriber_id == subscriber_id).first()
+        if not subscriber:
+            raise HTTPException(status_code=404, detail=f"Subscriber not found with ID: {subscriber_id}")
+
+        db.delete(subscriber)
+        db.commit()
+        return {"message": f"Subscriber with ID {subscriber_id} has been deleted successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error deleting subscriber: {str(e)}")
