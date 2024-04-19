@@ -4,7 +4,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.exc import SQLAlchemyError
 from ..db.schema import Base, Subscriber
-from ..db.sql_handler import SqlHandler
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///subscription_database.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
