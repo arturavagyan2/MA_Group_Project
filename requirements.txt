@@ -25,6 +25,7 @@ jedi==0.19.1
 jupyter_client==8.6.1
 jupyter_core==5.7.2
 matplotlib-inline==0.1.6
+mkdocs==1.5.3
 nest-asyncio==1.6.0
 numpy==1.26.4
 packaging==24.0
