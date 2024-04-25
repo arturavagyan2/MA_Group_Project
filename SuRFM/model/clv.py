@@ -49,7 +49,7 @@ class CLV:
         """
         recency, frequency, monetary = self.calculate_rfm()
 
-        base_discount_rate = 0.1025
+        base_discount_rate = 0.1
         
         discount_adjustment = min(0.05, recency / 30 * 0.01)
         discount_rate = max(0, base_discount_rate - discount_adjustment)
