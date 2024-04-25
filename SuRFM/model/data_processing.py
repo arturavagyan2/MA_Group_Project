@@ -10,9 +10,9 @@ clv_handler.close_cnxn()
 
 connect_to_subscribers = SqlHandler('subscription_database', 'subscriber')
 
-dim_customer = connect_to_subscribers.get_table_data()
+subscribers = connect_to_subscribers.get_table_data()
 connect_to_subscribers.close_cnxn()
-dim_customer['survival_time_months'] = 1 + dim_customer['survival_time'] // 30
+subscribers['survival_time_months'] = 1 + subscribers['survival_time'] // 30
 
 data['transaction_date'] = pd.to_datetime(data['transaction_date'])
 
@@ -43,7 +43,7 @@ def p():
     Dataframe:
         A dataframe of survival probabilities at different time points up to 12 months for each customer.
     """
-    data = dim_customer.copy()
+    data = subscribers.copy()
     data.drop(columns=['first_transaction_date', 'last_transaction_date'], inplace=True)
     data = pd.get_dummies(data, columns=['gender'], prefix='gender', drop_first=True)
 
