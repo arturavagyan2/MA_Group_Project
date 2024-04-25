@@ -1,6 +1,6 @@
 import pandas as pd
 
-from RFM.db.sql_handler import SqlHandler
+from SuRFM.db.sql_handler import SqlHandler
 
 #____________________________________________________________________________________________
 
