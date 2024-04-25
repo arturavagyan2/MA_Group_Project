@@ -8,10 +8,10 @@ clv_handler = SqlHandler('subscription_database', 'transactions')
 data = clv_handler.get_table_data()
 clv_handler.close_cnxn()
 
-connect_to_dim_customer = SqlHandler('subscription_database', 'subscriber')
+connect_to_subscribers = SqlHandler('subscription_database', 'subscriber')
 
-dim_customer = connect_to_dim_customer.get_table_data()
-connect_to_dim_customer.close_cnxn()
+dim_customer = connect_to_subscribers.get_table_data()
+connect_to_subscribers.close_cnxn()
 dim_customer['survival_time_months'] = 1 + dim_customer['survival_time'] // 30
 
 data['transaction_date'] = pd.to_datetime(data['transaction_date'])
