@@ -1,5 +1,12 @@
 site_name: My Documentation
+
 docs_dir: documents
+
+nav: 
+  - Home: index.md
+  - Page1: page1.md
+  - Page2: page2.md
+
 theme:
   name: material
 
