@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.exc import SQLAlchemyError
 from ..db.schema import Base, Subscriber
+from pydantic import *
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///subscription_database.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
@@ -34,7 +35,7 @@ async def get_subscriber_info(id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/new_subscriber")
-async def add_subscriber(name: str, email: str, age: int, location: str, gender: str = Query(enum=["Male", "Female", "Other"]), db: Session = Depends(get_db)):
+async def add_subscriber(name: str, email: EmailStr, age: int, location: str, gender: str = Query(enum=["Male", "Female", "Other"]), db: Session = Depends(get_db)):
     try:
         subscription_start_date = datetime.now()
         new_subscriber = Subscriber(name=name, email=email, age=age, location=location, gender=gender, subscription_start_date=subscription_start_date, event_observed=False)
@@ -44,11 +45,10 @@ async def add_subscriber(name: str, email: str, age: int, location: str, gender:
         return {"message": f"Subscriber added successfully with ID: {new_subscriber.subscriber_id}"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error adding subscriber: {str(e)}")
-    
 
 
 @app.put("/update_subscriber")
-async def update_subscriber(Subscriber_ID: int, Name: str = Query(None), Email: str = Query(None), Age: int = Query(None), Location: str = Query(None), Gender: str = Query(None, enum=["Male", "Female", "Other"]), Subscribtion_Ended: bool = Query(None, enum=[True]), Event_Observed: bool = Query(False), db: Session = Depends(get_db)):
+async def update_subscriber(Subscriber_ID: int, Name: str = Query(None), Email: EmailStr = Query(None), Age: int = Query(None), Location: str = Query(None), Gender: str = Query(None, enum=["Male", "Female", "Other"]), Subscribtion_Ended: bool = Query(None, enum=[True]), Event_Observed: bool = Query(False), db: Session = Depends(get_db)):
     try:
         subscriber = db.query(Subscriber).filter(Subscriber.subscriber_id == Subscriber_ID).first()
         if not subscriber:
