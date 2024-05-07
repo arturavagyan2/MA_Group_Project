@@ -29,7 +29,30 @@ Execute the `schema.py` script to initialize the database. This action creates e
 
 To transfer the generated data from CSV files into the database, run the `basic_rfm.py` script. This step fills the tables in the database with the relevant information.
 
+### BONUS: Using Flake8 for Code Quality Checking
 
+Introduction
+
+Flake8 is a powerful tool for ensuring code quality and adherence to PEP 8 style guidelines in Python projects. It combines several tools in one package, including PyFlakes, pycodestyle (formerly known as pep8), and McCabe.
+
+- It is added in the `requirenments.txt`, yet you can install it with 
+
+```bash
+pip install flake8
+```
+
+- For this project, run the project using the command to run on the whole project and see the errors on the terminal
+
+```bash
+flake8 --exclude __init__.py 
+```
+
+- The path to file may be added in the end of the command if we need to run flake8 on specific part of the project
+
+```bash
+flake8 path/to/MA_GROUP_PROJECT/subdirectory/or/file
+```
+After this, with **red** the codes and explanations of the errors will be shown. Please check all of them and then push to the directory.
 ### Additional Notes:
 
 - Make sure to have Python installed on your system.
