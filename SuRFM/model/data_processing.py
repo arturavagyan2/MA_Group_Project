@@ -19,7 +19,8 @@ data['transaction_date'] = pd.to_datetime(data['transaction_date'])
 
 def MM():
     """
-    Calculate the average monthly margin based on the last year's transaction data.
+    Calculate the average monthly margin based on
+    the last year's transaction data.
 
     Returns:
     -------
@@ -34,24 +35,25 @@ def MM():
 
     return average_monthly_margin
 
+
 def p():
     """
-    Calculate the survival probabilities for customers using AFT estimator for a year.
+    Calculate the survival probabilities for customers
+    using AFT estimator for a year.
 
     Returns:
     --------
     Dataframe:
-        A dataframe of survival probabilities at different time points up to 12 months for each customer.
+        A dataframe of survival probabilities at different time points up to
+        12 months for each customer.
     """
     data = subscribers.copy()
-    data.drop(columns=['first_transaction_date', 'last_transaction_date'], inplace=True)
-    data = pd.get_dummies(data, columns=['gender'], prefix='gender', drop_first=True)
-
+    data.drop(columns=['first_transaction_date', 'last_transaction_date'], inplace=True)  # noqa: E501
+    data = pd.get_dummies(data, columns=['gender'], prefix='gender', drop_first=True)  # noqa: E501
 
     log_aft = LogNormalAFTFitter()
-    log_aft.fit(data, duration_col="survival_time_months", event_col="event_observed")
+    log_aft.fit(data, duration_col="survival_time_months", event_col="event_observed")  # noqa: E501
     time_points = list(range(1, 13))
     pred = log_aft.predict_survival_function(data, times=time_points)
-
 
     return pred
