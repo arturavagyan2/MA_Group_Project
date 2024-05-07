@@ -2,6 +2,7 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 
+
 class CustomFormatter(logging.Formatter):
     """
     Custom formatter for informative logging with colored output.
@@ -13,7 +14,7 @@ class CustomFormatter(logging.Formatter):
     bold_red = "\x1b[31;1m"
     reset = "\x1b[0m"
 
-    format = "%(asctime)s - %(name)s - %(funcName)s - %(levelname)s - (%(message)s) - line: %(lineno)d"
+    format = "%(asctime)s - %(name)s - %(funcName)s - %(levelname)s - (%(message)s) - line: %(lineno)d"  # noqa: E501
     datefmt = "%Y-%m-%d %H:%M:%S"
     FORMATS = {
         logging.DEBUG: grey + format + reset,
@@ -26,7 +27,7 @@ class CustomFormatter(logging.Formatter):
     def format(self, record):
         """
         Format the log record with colors based on the logging level.
-        
+
         Parameters:
         ----------
         record : logging.LogRecord
@@ -41,6 +42,7 @@ class CustomFormatter(logging.Formatter):
         formatter = logging.Formatter(log_fmt, datefmt=self.datefmt)
         return formatter.format(record)
 
+
 if __name__ == '__main__':
     logger_name = os.path.splitext(os.path.basename(__file__))[0]
     logger = logging.getLogger(logger_name)
@@ -51,7 +53,7 @@ if __name__ == '__main__':
     ch.setFormatter(CustomFormatter())
     logger.addHandler(ch)
 
-    fh = RotatingFileHandler(f"{logger_name}.log", maxBytes=10240, backupCount=3)
+    fh = RotatingFileHandler(f"{logger_name}.log", maxBytes=10240, backupCount=3)  # noqa: E501
     fh.setLevel(logging.DEBUG)
     fh.setFormatter(CustomFormatter())
     logger.addHandler(fh)
