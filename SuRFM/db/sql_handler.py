@@ -179,7 +179,7 @@ class SqlHandler:
             or DataFrame creation.
         """
 
-        query = ' SELECT subscriber_id, recency_score, frequency_score, monetary_score FROM RFM_segmentation; '  # noqa: E501
+        query = ' SELECT DISTINCT subscriber_id, recency_score, frequency_score, monetary_score FROM RFM_segmentation; '  # noqa: E501
         rfm_data = pd.read_sql_query(query, self.cnxn)
         return rfm_data
 
@@ -259,7 +259,7 @@ class SqlHandler:
             INNER JOIN subscriber s ON r.subscriber_id = s.subscriber_id
             WHERE r.subscriber_id = ?
             LIMIT 1
-        """ # noqa: E501
+        """
 
         try:
             # Execute the SQL query
@@ -286,7 +286,8 @@ class SqlHandler:
             subscription_ended: Optional[bool] = None,
             event_observed: Optional[int] = None,
             email_sent: Optional[bool] = False
-        ): # noqa: E501
+            ):
+
         """
         Update subscriber information in the database.
 
@@ -297,12 +298,15 @@ class SqlHandler:
             age (int, optional): New age of the subscriber.
             location (str, optional): New location of the subscriber.
             gender (str, optional): New gender of the subscriber.
-            subscription_ended (bool, optional): Flag indicating if subscription has ended.
+            subscription_ended (bool, optional): Flag indicating
+            if subscription has ended.
             event_observed (int, optional): Event observed status.
-            email_sent (bool, optional): Flag indicating if email has been sent.
+            email_sent (bool, optional): Flag indicating if email
+            has been sent.
 
         Raises:
-            Any exceptions related to SQL query execution or database connection.
+            Any exceptions related to SQL query execution
+            or database connection.
         """
         query = """
             SELECT s.subscription_start_date
@@ -310,11 +314,11 @@ class SqlHandler:
             INNER JOIN subscriber s ON r.subscriber_id = s.subscriber_id
             WHERE r.subscriber_id = ?
             LIMIT 1
-        """ # noqa: E501
+        """
 
         try:
-            start_date = pd.read_sql_query(query, self.cnxn, params=(subscriber_id,)) # noqa: E501
-            
+            start_date = pd.read_sql_query(query, self.cnxn, params=(subscriber_id,))  # noqa: E501
+
             set_clauses = []
 
             if name is not None:
