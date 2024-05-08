@@ -133,6 +133,7 @@ async def get_declining_subscribers(db: Session = Depends(get_db)):
             subscriber_id = subscriber['subscriber_id']
             connect_to_subscribers = SqlHandler('subscription_database', 'subscriber')
             subscriber_info = connect_to_subscribers.get_email_by_subscriber_id(subscriber_id=subscriber_id)
+            connect_to_subscribers.close_cnxn()
             if subscriber_info:
                 email = subscriber_info
                 try:
@@ -147,8 +148,9 @@ async def get_declining_subscribers(db: Session = Depends(get_db)):
                     response = sg.send(message)
                     print(response.status_code)
                     if response.status_code == 202:
-                        connect_to_subscribers.update_subscriber_data(subscriber_id=subscriber_id, email_sent=True)
-                        connect_to_subscribers.close_cnxn()
+                        update_to_subscribers = SqlHandler('subscription_database', 'subscriber')
+                        update_to_subscribers.update_subscriber_data(subscriber_id=subscriber_id, email_sent=True)
+                        update_to_subscribers.close_cnxn()
                 except Exception as e:
                     print(f"Error sending email to {email}: {e}")
         return declining_subscribers
