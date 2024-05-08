@@ -1,4 +1,4 @@
-# If package should be run based on the real data, the database shoulde be updated:
+# If package should be run based on the real data, the database should be updated:
 
 ## HOW? Here are the steps: 
 
