@@ -22,7 +22,8 @@ def generate_subscribers():
             'subscription_start_date': start,
             'subscription_end_date': end,
             'survival_time': (end - start).days,
-            'event_observed': fake.boolean()
+            'event_observed': fake.boolean(),
+            'email_sent': None
         }
         subscribers_data.append(subscriber)
     return subscribers_data
