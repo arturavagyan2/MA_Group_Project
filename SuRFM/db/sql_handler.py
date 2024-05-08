@@ -234,3 +234,39 @@ class SqlHandler:
         # Identify declining customers based on their RFM segments
         declining_customers = rfm_data[rfm_data['Segment'] == 'Low']
         return declining_customers
+
+# ____________________________________________________________________________
+
+    def get_email_by_subscriber_id(cnxn, subscriber_id):
+        """
+        Retrieve the email of a subscriber based on their
+        subscriber_id from the rfm_segmentation_table.
+
+        Args:
+            cnxn (Connection): Database connection object.
+            subscriber_id (int): Subscriber ID for which
+            to retrieve the email.
+
+        Returns:
+            str or None: Email of the subscriber
+            if found, None otherwise.
+        """
+        query = """
+            SELECT s.email
+            FROM rfm_segmentation_table r
+            INNER JOIN subscriber_table s ON r.subscriber_id = s.subscriber_id  # noqa: E501
+            WHERE r.subscriber_id = %s
+        """
+
+        try:
+            # Execute the SQL query
+            email_data = pd.read_sql_query(query, cnxn, params=(subscriber_id,))  # noqa: E501
+
+            # Check if any email is retrieved
+            if not email_data.empty:
+                return email_data.iloc[0]['email']
+            else:
+                return None
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
