@@ -1,6 +1,6 @@
-## If package should be run based on the real data, the database shoulde be updated:
+# If package should be run based on the real data, the database shoulde be updated:
 
-# HOW? Here are the steps: 
+## HOW? Here are the steps: 
 
 - put input files with exact these names into csv_files folder
         'subscribers_data.csv'
