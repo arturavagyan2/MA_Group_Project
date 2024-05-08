@@ -10,7 +10,7 @@ Find our project on [PyPi](https://pypi.org/project/SuRFM/).
 
 ## How It Works
 
-1. **Data Input**: The SuRFM package requires subscription data, including subscriber activity and transaction history.
+1. **Data Input**: The SuRFM package requires subscription data, including subscriber activity and transaction history. If you want to run the package on your data, please visit *csv_files/README.md* to understand how the database should be updated.
 2. **Analysis**: The RFM model segments subscribers based on their recency, frequency, and monetary value contributions to the service.
 3. **Insights and Actions**: Based on the analysis, SuRFM provides actionable insights for improving customer retention strategies.
 
