@@ -24,6 +24,7 @@ class Subscriber(Base):
     transactions = relationship('Transaction', back_populates='subscriber')
     rfm_segmentation = relationship('RFMSegmentation', back_populates='subscriber', uselist=False)  # noqa: E501
     clv = relationship('CLV', back_populates='subscriber', uselist=False)
+    email_sent = Column(DateTime)
 
 
 class Activity(Base):
