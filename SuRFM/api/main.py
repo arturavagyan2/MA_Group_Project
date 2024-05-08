@@ -115,7 +115,7 @@ async def delete_subscriber(subscriber_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/declining_subscribers")
-async def get_declining_subscribers(db: Session = Depends(get_db)):
+async def get_declining_subscribers():
     try:
         connect_to_rfm = SqlHandler('subscription_database', 'RFM_segmentation')
         rfm_data = connect_to_rfm.get_rfm_data()
@@ -156,3 +156,7 @@ async def get_declining_subscribers(db: Session = Depends(get_db)):
         return declining_subscribers
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving declining subscribers: {str(e)}")
+    
+
+
+
