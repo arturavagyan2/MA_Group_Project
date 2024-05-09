@@ -233,7 +233,7 @@ async def get_declining_subscribers():
                     print(response.status_code)
                     if response.status_code == 202:
                         update_to_subscribers = SqlHandler('subscription_database', 'subscriber')  # noqa E501
-                        update_to_subscribers.update_subscriber_data(subscriber_id=subscriber_id, email_sent=True)  # noqa E501
+                        update_to_subscribers.update_subscriber_emailSent_status(subscriber_id=subscriber_id, email_sent=True)  # noqa E501
                         update_to_subscribers.close_cnxn()
                 except Exception as e:
                     print(f"Error sending email to {email}: {e}")

@@ -4,7 +4,6 @@ import logging
 import numpy as np
 import pandas as pd
 from datetime import datetime
-from typing import Optional
 
 from ..logger import CustomFormatter
 
@@ -275,69 +274,27 @@ class SqlHandler:
 
 # ____________________________________________________________________________
 
-    def update_subscriber_data(
+    def update_subscriber_emailSent_status(
             self,
             subscriber_id: int,
-            name: Optional[str] = None,
-            email: Optional[str] = None,
-            age: Optional[int] = None,
-            location: Optional[str] = None,
-            gender: Optional[str] = None,
-            subscription_ended: Optional[bool] = None,
-            event_observed: Optional[int] = None,
-            email_sent: Optional[bool] = False
+            email_sent: bool = False
             ):
 
         """
-        Update subscriber information in the database.
+        Mark email_sent as sent in the database for the subscriber with ID.
 
         Args:
             subscriber_id (int): ID of the subscriber to update.
-            name (str, optional): New name of the subscriber.
-            email (str, optional): New email of the subscriber.
-            age (int, optional): New age of the subscriber.
-            location (str, optional): New location of the subscriber.
-            gender (str, optional): New gender of the subscriber.
-            subscription_ended (bool, optional): Flag indicating
-            if subscription has ended.
-            event_observed (int, optional): Event observed status.
-            email_sent (bool, optional): Flag indicating if email
-            has been sent.
+            email_sent (bool): Flag indicating if email has been sent.
 
         Raises:
             Any exceptions related to SQL query execution
             or database connection.
         """
-        query = """
-            SELECT s.subscription_start_date
-            FROM rfm_segmentation r
-            INNER JOIN subscriber s ON r.subscriber_id = s.subscriber_id
-            WHERE r.subscriber_id = ?
-            LIMIT 1
-        """
 
         try:
-            start_date = pd.read_sql_query(query, self.cnxn, params=(subscriber_id,))  # noqa: E501
-
             set_clauses = []
 
-            if name is not None:
-                set_clauses.append(f"name = '{name}'")
-            if email is not None:
-                set_clauses.append(f"email = '{email}'")
-            if age is not None:
-                set_clauses.append(f"age = {age}")
-            if location is not None:
-                set_clauses.append(f"location = '{location}'")
-            if gender is not None:
-                set_clauses.append(f"gender = '{gender}'")
-            if subscription_ended:
-                current_time = datetime.now()
-                set_clauses.append(f"subscription_end_date = '{current_time}'")
-                duration = current_time - start_date
-                set_clauses.append(f"survival_time = {duration.days}")
-            if event_observed is not None:
-                set_clauses.append(f"event_observed = {event_observed}")
             if email_sent:
                 current_time = datetime.now()
                 set_clauses.append(f"email_sent = '{current_time}'")
