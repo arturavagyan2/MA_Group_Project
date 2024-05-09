@@ -4,6 +4,7 @@ from generate_data import generate_subscribers, generate_activities, \
     generate_transactions, generate_payment_methods, \
     generate_RFM_segmentation, generate_retention_strategies, generate_clv
 
+
 def save_to_csv(data, filename):
     with open(os.path.join('csv_files', filename), 'w', newline='') as csvfile:
         fieldnames = data[0].keys() if data else []
@@ -12,10 +13,11 @@ def save_to_csv(data, filename):
         for record in data:
             writer.writerow(record)
 
+
 def check_files_exist(required_files):
-    folder_name = 'csv_files'
+    folder_name = 'csv_files'  # noqa E501
     if not os.path.exists(folder_name):
-        print("'csv_files' folder does not exist. Please create the folder or provide the correct folder path.")
+        print("'csv_files' folder does not exist. Please create the folder or provide the correct folder path.")  # noqa E501
         return False
     else:
         if len(os.listdir(folder_name)) == 1:
@@ -38,8 +40,9 @@ def check_files_exist(required_files):
             print("CSV files saved successfully in the 'csv_files' folder.")
             return True
         else:
-            print("'csv_files' folder is not empty. Skipping CSV file generation.")
+            print("'csv_files' folder is not empty. Skipping CSV file generation.")  # noqa E501
             return True
+
 
 # Example of how to use the function
 required_files = [
