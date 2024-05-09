@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 feedback.md
+csv_files
 
 # C extensions
 *.so

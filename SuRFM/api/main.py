@@ -9,6 +9,7 @@ from pydantic import EmailStr
 from ..db.sql_handler import SqlHandler
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+from statistics import median
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 SQLALCHEMY_DATABASE_URL = "sqlite:///subscription_database.db"
@@ -159,4 +160,18 @@ async def get_declining_subscribers():
     
 
 
+@app.get("/low_value_customers")
+async def identify_low_value_customers():
+    try:
+        connect_to_clv = SqlHandler('subscription_database', 'clv')
+        clv_data = connect_to_clv.get_table_data(columns=["clv_value", "subscriber_id"])
+        connect_to_clv.close_cnxn()
+        
+        threshold_clv_value = clv_data['clv_value'].median()
+        low_value_customers = clv_data[clv_data['clv_value'] < threshold_clv_value][["subscriber_id", "clv_value"]]
+        low_value_customers = low_value_customers.sort_values(by="subscriber_id")
+        low_value_customers_list = low_value_customers.to_dict(orient='records')
 
+        return {"low_value_customers": low_value_customers_list}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error identifying low-value customers: {str(e)}")
