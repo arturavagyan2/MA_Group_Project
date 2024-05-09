@@ -160,18 +160,18 @@ async def get_declining_subscribers():
     
 
 
-@app.get("/low_value_customers")
-async def identify_low_value_customers():
+@app.get("/low_value_subscribers")
+async def identify_low_value_subscribers():
     try:
         connect_to_clv = SqlHandler('subscription_database', 'clv')
         clv_data = connect_to_clv.get_table_data(columns=["clv_value", "subscriber_id"])
         connect_to_clv.close_cnxn()
-        
-        threshold_clv_value = clv_data['clv_value'].median()
-        low_value_customers = clv_data[clv_data['clv_value'] < threshold_clv_value][["subscriber_id", "clv_value"]]
-        low_value_customers = low_value_customers.sort_values(by="subscriber_id")
-        low_value_customers_list = low_value_customers.to_dict(orient='records')
 
-        return {"low_value_customers": low_value_customers_list}
+        threshold_clv_value = clv_data['clv_value'].median()
+        low_value_subscribers = clv_data[clv_data['clv_value'] < threshold_clv_value][["subscriber_id", "clv_value"]]
+        low_value_subscribers = low_value_subscribers.sort_values(by="subscriber_id")
+        low_value_subscribers_list = low_value_subscribers.to_dict(orient='records')
+
+        return {"low_value_subscribers": low_value_subscribers_list}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error identifying low-value customers: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error identifying low-value subscribers: {str(e)}")
