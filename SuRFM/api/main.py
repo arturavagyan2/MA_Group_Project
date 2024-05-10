@@ -191,7 +191,7 @@ async def delete_subscriber(subscriber_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/declining_subscribers")
-async def get_declining_subscribers():
+async def get_declining_subscribers(send_email: bool = False):
     """
     Endpoint to retrieve declining subscribers and send emails to them.
 
@@ -218,7 +218,7 @@ async def get_declining_subscribers():
             connect_to_subscribers = SqlHandler('subscription_database', 'subscriber')  # noqa E501
             subscriber_info = connect_to_subscribers.get_email_by_subscriber_id(subscriber_id=subscriber_id)  # noqa E501
             connect_to_subscribers.close_cnxn()
-            if subscriber_info:
+            if subscriber_info and send_email:
                 email = subscriber_info
                 try:
                     message = Mail(
