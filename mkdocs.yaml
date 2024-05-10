@@ -4,8 +4,10 @@ docs_dir: documents
 
 nav: 
   - Home: index.md
-  - Page1: page1.md
-  - Page2: page2.md
+  - API: api.md
+  - Database: db.md
+  - Logger: logger.md
+  - Model: model.md
 
 theme:
   name: material
