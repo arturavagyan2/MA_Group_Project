@@ -29,7 +29,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     name="SuRFM",
-    version="1.0",
+    version="1.0.0",
     packages=find_packages(include=["SuRFM", "SuRFM.*"]),
     install_requires=required_packages
 )
