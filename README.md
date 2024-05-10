@@ -8,7 +8,7 @@ Our project aims to address the issue of declining customer retention and subscr
 
 Find our project on [PyPi](https://pypi.org/project/SuRFM/).
 
-Read our documentation [here](https://arturavagyan2.github.io/documentation/)).
+Read our documentation [here](https://arturavagyan2.github.io/documentation/).
 
 ## How It Works
 

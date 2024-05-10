@@ -90,6 +90,49 @@ The API utilizes FastAPI and interacts with an SQLite database via SQLAlchemy. E
 - **Error Response**:
     - **Code**: 500 (Internal Server Error) with error details.
 
+## Setting Up SendGrid for Email Sending in Python
+
+This guide provides step-by-step instructions on how to set up SendGrid, generate API keys, and integrate SendGrid into your Python application for sending emails.
+
+### Step 1: Create an Account on SendGrid
+1. Go to the [SendGrid website](https://sendgrid.com/) and sign up for an account using your email address and creating a password.
+
+### Step 2: Verify Your Account
+2. After signing up, verify your account by clicking on the verification link sent to your email address.
+
+### Step 3: Access API Keys
+3. Once logged in, navigate to the "Settings" section of your SendGrid account. In the left sidebar, under "Settings", click on "API Keys".
+
+### Step 4: Generate API Key
+4. On the API Keys page, click the "Create API Key" button. Give your API key a name and choose the permissions you want to assign to it. For sending emails, you'll need "Mail Send" permissions.
+
+### Step 5: Store API Key
+5. After creating the API key, copy the generated API key. Store this key securely in a safe place on your local machine.
+
+### Step 6: Set Up Sender Authentication
+6. To improve email deliverability and avoid being marked as spam, set up sender authentication. Go to "Settings" > "Sender Authentication" in your SendGrid account and follow the instructions to verify your sender identity.
+
+### Step 7: Export API Key as Environment Variable (macOS / Linux)
+7. Open your terminal and export the API key as an environment variable using the following command:
+
+    
+```bash
+export SENDGRID_API_KEY='your_api_key' #Replace 'your_api_key' with the API key you generated earlier.
+```
+
+## Step 7: Set Environment Variable (Windows)
+
+7. On Windows, you can set the environment variable using the following command in the command prompt:
+
+    
+```bash
+set SENDGRID_API_KEY=your_api_key #Replace your_api_key with the API key you generated earlier.
+```
+
+Ensure you replace 'sender@example.com' with an appropriate email address.
+
+Congratulations! You have successfully set up and integrated SendGrid for sending emails in Python.
+
 ## Additional Notes
 Ensure Python is installed and all dependencies are met before executing scripts. For any issues or inquiries, reach out to the repository maintainers.
 

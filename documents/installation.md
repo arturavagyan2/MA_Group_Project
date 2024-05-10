@@ -13,7 +13,7 @@ First, clone the SuRFM repository from GitHub to your local machine. You can do 
 
 ```bash
 git clone https://github.com/arturavagyan2/MA_Group_Project.git
-cd surfm
+cd SuRFM
 ```
 
 ### 2. Set Up a Virtual Environment (Optional)
