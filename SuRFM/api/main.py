@@ -191,14 +191,18 @@ async def delete_subscriber(subscriber_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/declining_subscribers")
-async def get_declining_subscribers(send_email: bool = False):
+async def get_declining_subscribers(from_email: str = Query(None), send_email: bool = False):  # noqa: E501
     """
     Endpoint to retrieve declining subscribers and send emails to them.
 
-    Raises:
-        HTTPException: If error occurs while retrieving declining subscribers or sending emails.
+    Args:
+        from_email (str): Email address to be sent from.
+        send_email (bool): True, if to send emails to all subscribers in the return list.  # noqa: E501
 
-    Returns:  # noqa E501
+    Raises:
+        HTTPException: If error occurs while retrieving declining subscribers or sending emails.  # noqa: E501
+
+    Returns:
         dict: List of declining subscribers.
     """
     try:
@@ -222,7 +226,7 @@ async def get_declining_subscribers(send_email: bool = False):
                 email = subscriber_info
                 try:
                     message = Mail(
-                        from_email='hragsoussani4@gmail.com',
+                        from_email=from_email,
                         to_emails=email,
                         subject=subject,
                         plain_text_content=body
