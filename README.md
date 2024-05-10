@@ -7,7 +7,8 @@
 Our project aims to address the issue of declining customer retention and subscriber attrition in subscription-based companies, particularly in the context of streaming services. We propose the development of a Python package named SuRFM, leveraging RFM analysis to offer insights into behavior patterns, client segmentation, and their likelihood of churn.
 
 Find our project on [PyPi](https://pypi.org/project/SuRFM/).
-Read our documentation [here](./site).
+
+Read our documentation [here](./documents/index.md).
 
 ## How It Works
 
