@@ -1,9 +1,59 @@
+# Logger Documentation
 
-# Page 1 
+## Overview
+This documentation describes the logging setup used in the SuRFM package. The logger module includes a custom formatter that enhances log readability by using colors to differentiate the severity levels of log messages.
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+## Logger Configuration
+The logging system uses the `logging` module from Python's standard library and is extended by a custom formatter class, which adds colors to the logs based on their severity levels.
 
-## Sed ut
+### CustomFormatter Class
+- **Purpose**: Enhances log readability by applying color coding to different log levels.
+- **Colors**:
+    - Grey: DEBUG
+    - Violet: INFO
+    - Yellow: WARNING
+    - Red: ERROR
+    - Bold Red: CRITICAL
 
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+### Log Format
+Each log entry includes the timestamp, logger name, function name, log level, message, and the line number. The date and time format is set to `YYYY-MM-DD HH:MM:SS`.
 
+## File Handlers
+- **StreamHandler**: Outputs logs to the console with the same formatting as file logs.
+- **RotatingFileHandler**:
+    - **File Name**: `{logger_name}.log`, where `logger_name` is the filename of the script minus the file extension.
+    - **Rotation Criteria**: The log file is rotated when it reaches 10 KB. Up to three backup files are kept.
+
+## Usage Example
+Below is an example of how to configure the logger in a Python script:
+
+```python
+import logging
+from logger import CustomFormatter
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Console handler with custom formatter
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+ch.setFormatter(CustomFormatter())
+logger.addHandler(ch)
+
+# File handler with custom formatter and rotation
+fh = RotatingFileHandler('application.log', maxBytes=10240, backupCount=3)
+fh.setLevel(logging.DEBUG)
+fh.setFormatter(CustomFormatter())
+logger.addHandler(fh)
+
+# Test logging
+logger.debug("Debug message")
+logger.info("Info message")
+logger.warning("Warning message")
+logger.error("Error message")
+logger.critical("Critical message")
+```
+
+Additional Notes
+Ensure that the RotatingFileHandler directory path is accessible and writable.
+Adjust log levels and handlers as necessary based on the deployment environment or debugging needs.

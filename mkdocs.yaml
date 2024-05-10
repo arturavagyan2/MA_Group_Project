@@ -4,6 +4,7 @@ docs_dir: documents
 
 nav: 
   - Home: index.md
+  - Installation Guide: installation.md
   - API: api.md
   - Database: db.md
   - Logger: logger.md
